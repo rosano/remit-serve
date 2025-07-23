@@ -1,6 +1,6 @@
 {
-	"id": "ca.rosano.far.cloudron",
-	"title": "far on Cloudron",
+	"id": "ca.rosano.remit.cloudron",
+	"title": "remit on Cloudron",
 	"version": "0.0.1",
 	"healthCheckPath": "/",
 	"httpPort": 3000,
