@@ -8,7 +8,7 @@ First, set the environment variable `REMIT_BASE` to a URL:
 REMIT_BASE="https://example.com/folder_with_websites/"
 ```
 
-Then Remit will map `alfa.com/bravo`: "https://example.com/folder_with_websites/alfa.com/bravo",
+Then Remit will map `alfa.com/bravo` to `https://example.com/folder_with_websites/alfa.com/bravo`.
 
 ---
 
