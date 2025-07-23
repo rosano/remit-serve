@@ -7,5 +7,11 @@
 	"addons": {
 		"localstorage": {}
 	},
- "manifestVersion": 2
+	"multiDomain": true,
+	"author": "rosano.ca",
+	"description": "Maps multiple domains to folders under any public URL.",
+	"documentationUrl": "https://github.com/rosano/remit",
+	"postInstallMessage": "Please set REMIT_BASE to a URL in /app/data/.env, then restart.",
+	"website": "https://github.com/rosano/remit",
+	"manifestVersion": 2
 }
