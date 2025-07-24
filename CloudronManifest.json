@@ -1,5 +1,5 @@
 {
-	"id": "ca.rosano.remit-serve.cloudron",
+	"id": "ca.rosano.remit_serve.cloudron",
 	"title": "remit-serve on Cloudron",
 	"version": "0.0.1",
 	"healthCheckPath": "/",
