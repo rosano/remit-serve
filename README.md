@@ -1,17 +1,17 @@
-# Remit
+# Remit Serve
 
-Single-file Node.js app that receives requests for multiple domains and maps them to folders under any public URL.
+Single-file Node.js app that maps paths to external URLs.
 
-First, set `REMIT_BASE` to a URL in `.env`, maybe something like:
+First, set `WHITELIST_PREFIXES` to a URL in `.env`, maybe something like:
 
 ```bash
-REMIT_BASE="https://example.com/folder_with_websites/"
+WHITELIST_PREFIXES="just-a-domain.com,or-also-including.a/path/,https://is.ok/too/"
 ```
 
-Then Remit will map `alfa.com/bravo` to `https://example.com/folder_with_websites/alfa.com/bravo`.
+Then Remit Serve will basically map `remit-domain.com/just-a-domain.com/bravo` to `https://just-a-domain.com/bravo` as long as it matches a whitelist prefix.
+
+It's recommended to use trailing slashes on the paths.
 
 Dockerfiles are for [easy](https://easyindie.app) deployment to [Cloudron](cloudron.io) and [Caprover](https://caprover.com).
 
----
-
-Note: I somehow remade this project [a year before](https://github.com/rosano/remit-2024/) without realizing, but that one is more complicated and copies headers.
+Forks [remit](https://github.com/rosano/remit).

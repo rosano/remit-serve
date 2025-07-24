@@ -4,15 +4,28 @@ const app = express()
 require('dotenv').config({ quiet: true })
 
 app.use(async (req, res) => {
-	const base = process.env.REMIT_BASE
+	const prefixes = (process.env.WHITELIST_PREFIXES || '').split(',')
 
-	if (!base || (typeof base === 'string' && !base.match(/^https?:\/\//))) {
-		return res.send('Please set REMIT_BASE to a URL in .env, then restart.')
+	if (!prefixes.length) {
+		return res.send('Please set WHITELIST_PREFIXES to a URL in .env, then restart.')
 	}
 
-	const source = base + req.host + req.path;
+	const parts = req.path.split('/');
+	const domain = parts[1];
 
-	const response = await fetch(source);
+	if (!domain || !domain.match(/\w\.\w/)) {
+		return res.send('missing domain');
+	}
+
+	const path = '/' + parts.slice(2).join('/');
+	const source = domain + path;
+	const url = 'https://' + source;
+
+	if (!prefixes.filter(prefix => [source, url].filter(e => e.startsWith(prefix)).length).length) {
+		return res.send('not in whitelist');
+	}
+
+	const response = await fetch(url);
 
 	return res.send(await response.text())
 })

@@ -1,17 +1,16 @@
 {
-	"id": "ca.rosano.remit.cloudron",
-	"title": "remit on Cloudron",
+	"id": "ca.rosano.remit-serve.cloudron",
+	"title": "remit-serve on Cloudron",
 	"version": "0.0.1",
 	"healthCheckPath": "/",
 	"httpPort": 3000,
 	"addons": {
 		"localstorage": {}
 	},
-	"multiDomain": true,
 	"author": "rosano.ca",
-	"description": "Maps multiple domains to folders under any public URL.",
-	"documentationUrl": "https://github.com/rosano/remit",
+	"description": "Maps paths to external URLs.",
+	"documentationUrl": "https://github.com/rosano/remit-serve",
 	"postInstallMessage": "Please set REMIT_BASE to a URL in /app/data/.env, then restart.",
-	"website": "https://github.com/rosano/remit",
+	"website": "https://github.com/rosano/remit-serve",
 	"manifestVersion": 2
 }
