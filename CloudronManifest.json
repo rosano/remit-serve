@@ -10,7 +10,7 @@
 	"author": "rosano.ca",
 	"description": "Maps paths to external URLs.",
 	"documentationUrl": "https://github.com/rosano/remit-serve",
-	"postInstallMessage": "Please set REMIT_BASE to a URL in /app/data/.env, then restart.",
+	"postInstallMessage": "Please set WHITELIST_PREFIXES in /app/data/.env, then restart.",
 	"website": "https://github.com/rosano/remit-serve",
 	"manifestVersion": 2
 }
