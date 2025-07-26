@@ -7,21 +7,16 @@ app.use(async (req, res) => {
 	const prefixes = (process.env.WHITELIST_PREFIXES || '').split(',')
 
 	if (!prefixes.length) {
-		return res.send('Please set WHITELIST_PREFIXES to a URL in .env, then restart.')
+		return res.send('Please set WHITELIST_PREFIXES to comma-separated URLs in .env, then restart.')
 	}
 
-	const parts = req.path.split('/');
-	const domain = parts[1];
+	const url = req.path.slice(1);
 
-	if (!domain || !domain.match(/\w\.\w/)) {
-		return res.send('missing domain');
+	if (!url.match(/^https?:\/\//)) {
+		return res.send('missing URL');
 	}
 
-	const path = '/' + parts.slice(2).join('/');
-	const source = domain + path;
-	const url = 'https://' + source;
-
-	if (!prefixes.filter(prefix => [source, url].filter(e => e.startsWith(prefix)).length).length) {
+	if (!prefixes.filter(prefix => url.startsWith(prefix)).length) {
 		return res.send('not in whitelist');
 	}
 
