@@ -12,6 +12,8 @@ Then Remit Serve will basically map `remit-domain.com/https://just-a-domain.com/
 
 It's recommended to use trailing slashes on the paths.
 
+---
+
 Dockerfiles are for [easy](https://easyindie.app) deployment to [Cloudron](cloudron.io) and [Caprover](https://caprover.com).
 
 Forks [remit](https://github.com/rosano/remit).
