@@ -2,7 +2,7 @@
 
 Single-file Node.js app that maps paths to external URLs.
 
-First, set `WHITELIST_PREFIXES` to comma-separated URLs in `.env`, maybe something like:
+First, set `WHITELIST_PREFIXES` in `.env` to comma-separated URLs, maybe something like:
 
 ```bash
 WHITELIST_PREFIXES="https://just-a-domain.com,https://or-also-including.a/path/"
