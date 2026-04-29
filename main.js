@@ -28,6 +28,9 @@ app.use(async (req, res) => {
 	response.headers.forEach((value, key) => {
 		res.set(key, value);
 	});
+
+	if (require('path').basename(req.url).match(/\.(?!json)/))
+		return res.send(Buffer.from(await response.arrayBuffer()));
 	
 	const text = await response.text();
 	return res.send(text.replaceAll(prefix, base + prefix));
