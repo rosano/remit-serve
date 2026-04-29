@@ -22,7 +22,7 @@ app.use(async (req, res) => {
 
 	const response = await fetch(url);
 
-	return res.send(await response.text())
+	return res.send(await response.text());
 })
 
 const port = process.env.PORT || 3000
