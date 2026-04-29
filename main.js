@@ -16,13 +16,16 @@ app.use(async (req, res) => {
 		return res.send('missing URL');
 	}
 
-	if (!prefixes.filter(prefix => url.startsWith(prefix)).length) {
+	const prefix = prefixes.filter(prefix => url.startsWith(prefix));
+
+	if (!prefix) {
 		return res.send('not in whitelist');
 	}
 
+	const base = `https://${ req.get('host') }/`;
 	const response = await fetch(url);
-
-	return res.send(await response.text());
+	const text = await response.text();
+	return res.send(text.replaceAll(prefix, base + prefix));
 })
 
 const port = process.env.PORT || 3000
