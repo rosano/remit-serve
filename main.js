@@ -24,6 +24,11 @@ app.use(async (req, res) => {
 
 	const base = `https://${ req.get('host') }/`;
 	const response = await fetch(url);
+
+	response.headers.forEach((value, key) => {
+		res.set(key, value);
+	});
+	
 	const text = await response.text();
 	return res.send(text.replaceAll(prefix, base + prefix));
 })
